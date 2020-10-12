@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.example.todolist.base.BaseFragment;
 
 public class EditTaskFragment extends BaseFragment<EditTaskActivity, EditTaskContract.Presenter> implements EditTaskContract.View {
     EditText editText;
+    Button update, delete;
     Bundle bundle;
 
     public EditTaskFragment(Bundle bundle) {
@@ -29,6 +31,8 @@ public class EditTaskFragment extends BaseFragment<EditTaskActivity, EditTaskCon
         mPresenter.start();
 
         editText = fragmentView.findViewById(R.id.etEditTask);
+        update = fragmentView.findViewById(R.id.update);
+        delete = fragmentView.findViewById(R.id.delete);
         mPresenter.initializeTask(bundle);
 
 

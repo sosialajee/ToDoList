@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -25,7 +26,7 @@ public class MainFragment extends BaseFragment<MainActivity, MainContract.Presen
     private ArrayAdapter<String> itemsAdapter;
     private ListView listView;
     private Button button, update, delete;
-    Context mBase;
+    private String task;
 
     public MainFragment() {
 
@@ -58,6 +59,7 @@ public class MainFragment extends BaseFragment<MainActivity, MainContract.Presen
                 //Toast.makeText(context, "Item Removed", Toast.LENGTH_SHORT).show();
                 //items.remove(i);
                 //itemsAdapter.notifyDataSetChanged();
+                task = items.get(i);
                 setUpListViewListener();
                 return true;
             }
@@ -77,6 +79,7 @@ public class MainFragment extends BaseFragment<MainActivity, MainContract.Presen
     @Override
     public void redirectToEditDialog() {
         Intent intent = new Intent(activity, EditTaskActivity.class);
+        intent.putExtra("task", task);
         startActivity(intent);
         activity.finish();
     }

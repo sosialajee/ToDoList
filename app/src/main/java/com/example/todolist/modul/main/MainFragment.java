@@ -24,7 +24,7 @@ public class MainFragment extends BaseFragment<MainActivity, MainContract.Presen
     private ArrayList<String> items;
     private ArrayAdapter<String> itemsAdapter;
     private ListView listView;
-    private Button addTask, update, delete;
+    private Button button, update, delete;
     Context mBase;
 
     public MainFragment() {
@@ -40,8 +40,8 @@ public class MainFragment extends BaseFragment<MainActivity, MainContract.Presen
         mPresenter.start();
 
         listView = fragmentView.findViewById(R.id.listView);
-        addTask = fragmentView.findViewById(R.id.addTaskBtn);
-        addTask.setOnClickListener(new View.OnClickListener() {
+        button = fragmentView.findViewById(R.id.addTaskBtn);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addItem(view);

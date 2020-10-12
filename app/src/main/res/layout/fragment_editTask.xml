@@ -7,9 +7,10 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="231dp"
-        android:layout_height="51dp"
+        android:hint="Add Task"
+        android:id="@+id/addTaskTF"
+        android:layout_width="249dp"
+        android:layout_height="66dp"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginEnd="2dp"
@@ -18,13 +19,12 @@
         android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Add Task"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/addTaskBtn"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addTaskBtn"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="2dp"
@@ -35,7 +35,8 @@
         android:text="Add Task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toEndOf="@+id/addTaskTF" />
+
 
     <View
         android:id="@+id/divider"
@@ -46,13 +47,13 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/addTaskTF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="657dp"
+        android:layout_width="392dp"
+        android:layout_height="625dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="15dp"
@@ -68,7 +69,7 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="631dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,7 @@ public class MainFragment extends BaseFragment<MainActivity, MainContract.Presen
     private ArrayList<String> items;
     private ArrayAdapter<String> itemsAdapter;
     private ListView listView;
-    private Button button, update, delete;
+    private Button addTask, update, delete;
     Context mBase;
 
     public MainFragment() {
@@ -35,13 +35,13 @@ public class MainFragment extends BaseFragment<MainActivity, MainContract.Presen
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        fragmentView = inflater.inflate(R.layout.fragment_editTask, container, false);
+        fragmentView = inflater.inflate(R.layout.fragment_main, container, false);
         mPresenter = new MainPresenter(this);
         mPresenter.start();
 
         listView = fragmentView.findViewById(R.id.listView);
-        button = fragmentView.findViewById(R.id.addTaskBtn);
-        button.setOnClickListener(new View.OnClickListener() {
+        addTask = fragmentView.findViewById(R.id.addTaskBtn);
+        addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addItem(view);
@@ -51,6 +51,18 @@ public class MainFragment extends BaseFragment<MainActivity, MainContract.Presen
         items = new ArrayList<>();
         itemsAdapter = new ArrayAdapter<>(activity, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(itemsAdapter);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Context context = getApplicationContext();
+                //Toast.makeText(context, "Item Removed", Toast.LENGTH_SHORT).show();
+                //items.remove(i);
+                //itemsAdapter.notifyDataSetChanged();
+                setUpListViewListener();
+                return true;
+            }
+        });
+
 
         setTitle("List Activity");
 
@@ -59,23 +71,11 @@ public class MainFragment extends BaseFragment<MainActivity, MainContract.Presen
 
 
     public void setUpListViewListener() {
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //Context context = getApplicationContext();
-                //Toast.makeText(context, "Item Removed", Toast.LENGTH_SHORT).show();
-                //items.remove(i);
-                //itemsAdapter.notifyDataSetChanged();
-                redirectToEditDialog();
-                return true;
-            }
-        });
         mPresenter.performEdit();
     }
 
     @Override
     public void redirectToEditDialog() {
-        setUpListViewListener();
         Intent intent = new Intent(activity, EditTaskActivity.class);
         startActivity(intent);
         activity.finish();

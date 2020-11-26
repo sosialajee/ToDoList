@@ -8,6 +8,7 @@ import com.example.todolist.base.BaseView;
 public interface EditTaskContract {
     interface View extends BaseView<Presenter> {
         void setTask(String task);
+        void setIndex(int index);
     }
 
     interface Presenter extends BasePresenter {

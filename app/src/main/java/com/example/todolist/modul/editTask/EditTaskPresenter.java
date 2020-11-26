@@ -14,7 +14,9 @@ public class EditTaskPresenter implements EditTaskContract.Presenter{
     @Override
     public void initializeTask(Bundle bundle){
         String task = bundle.getString("task");
+//        int index = bundle.getString("index");
 
+//        view.setIndex(index);
         view.setTask(task);
     }
 

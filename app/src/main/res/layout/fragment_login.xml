@@ -7,27 +7,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
         <EditText
-            android:hint="Email"
             android:id="@+id/et_email"
-            android:layout_width="match_parent"
+            android:layout_width="265dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Email"
             android:inputType="textPersonName" />
 
         <EditText
-            android:hint="Password"
             android:id="@+id/et_password"
-            android:layout_width="match_parent"
+            android:layout_width="269dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Password"
             android:inputType="textPassword" />
 
         <Button
             android:id="@+id/bt_login"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:text="Login"

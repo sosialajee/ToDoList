@@ -17,6 +17,7 @@ public class EditTaskFragment extends BaseFragment<EditTaskActivity, EditTaskCon
     EditText editText;
     Button update, delete;
     Bundle bundle;
+    String status;
 
     public EditTaskFragment(Bundle bundle) {
         this.bundle = bundle;
@@ -35,6 +36,12 @@ public class EditTaskFragment extends BaseFragment<EditTaskActivity, EditTaskCon
         delete = fragmentView.findViewById(R.id.delete);
         mPresenter.initializeTask(bundle);
 
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                status = "delete";
+            }
+        });
 
         setTitle("Edit Task");
 
@@ -50,5 +57,13 @@ public class EditTaskFragment extends BaseFragment<EditTaskActivity, EditTaskCon
     public void setTask(String task) {
         editText.setText(task);
     }
+
+    @Override
+    public void setIndex(int index) {
+
+    }
+
+  /*  @Override
+    public void setIndex(int index) { this.index = index; }*/
 
 }
